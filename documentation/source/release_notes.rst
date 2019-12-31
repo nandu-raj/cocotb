@@ -4,6 +4,27 @@ Release Notes
 
 All releases are available from the `GitHub Releases Page <https://github.com/cocotb/cocotb/releases>`_.
 
+cocotb 1.3
+==========
+
+Released on 31 December 2019
+
+New features
+------------
+* :func:`cocotb.triggers.with_timeout`, for a shorthand for waiting for a trigger with a timeout.
+* New ``timeout_time`` and ``timeout_unit`` arguments to :func:`cocotb.test`, for adding test timeouts.
+* The ``expect_error`` argument to :func:`cocotb.test` now accepts a specific exception type.
+* :envvar:`COCOTB_RESULTS_FILE`, to allow configration of the xunit XML output filename.
+* :class:`cocotb.triggers.Timer` can now be used with :class:`fraction.Fraction` instances, allowing constructs like ``Timer(Fraction(1, 10000), units='sec')`` as an alternate spelling for ``Timer(100, units='us')``.
+
+Notable changes and bug fixes
+-----------------------------
+- ``DeprecationWarning``\ s are now shown in the output by default.
+- Tracebacks are now preserved correctly for exceptions in Python 2. The tracebacks in all python versions are now a little shorter.
+- :func:`cocotb.external` and :func:`cocotb.function` now work more reliably and with fewer race conditions.
+- A failing ``assert`` will be considered a test failure. Previously, it was considered a test _error_.
+- :meth:`~cocotb.handles.NonConstantObject.drivers` and :meth:`~cocotb.handles.NonConstantObject.drivers` now work correctly in python 3.7 onwards.
+
 cocotb 1.2
 ==========
 
